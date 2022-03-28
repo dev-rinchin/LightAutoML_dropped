@@ -1,9 +1,11 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ master,  feature/publishing-docker-images]
-    # tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ master, feature/publishing-docker-images ]
+#     tags: [ 'v*.*.*' ]
+  workflow_run:
+    workflows: ["CI"]
 
 jobs:
   build:
@@ -29,3 +31,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lightautoml:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
