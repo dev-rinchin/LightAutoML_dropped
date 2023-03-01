@@ -27,7 +27,7 @@ Multitable datasets and sequences are a work in progress :)
 
 # (New feature) GPU pipeline
 Full GPU pipeline for LightAutoML currently available for developers testing (still in progress). The code and tutorials [available here](https://github.com/Rishat-skoltech/LightAutoML_GPU)
-
+ 
 <a name="toc"></a>
 # Table of Contents
 
